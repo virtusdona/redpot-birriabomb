@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/redpot-birriabomb/static/css/main.b089cf65.css",
-    "main.js": "/redpot-birriabomb/static/js/main.0abccf76.js",
+    "main.css": "/redpot-birriabomb/static/css/main.401a475d.css",
+    "main.js": "/redpot-birriabomb/static/js/main.77d7402d.js",
     "index.html": "/redpot-birriabomb/index.html",
-    "main.b089cf65.css.map": "/redpot-birriabomb/static/css/main.b089cf65.css.map",
-    "main.0abccf76.js.map": "/redpot-birriabomb/static/js/main.0abccf76.js.map"
+    "main.401a475d.css.map": "/redpot-birriabomb/static/css/main.401a475d.css.map",
+    "main.77d7402d.js.map": "/redpot-birriabomb/static/js/main.77d7402d.js.map"
   },
   "entrypoints": [
-    "static/css/main.b089cf65.css",
-    "static/js/main.0abccf76.js"
+    "static/css/main.401a475d.css",
+    "static/js/main.77d7402d.js"
   ]
 }
