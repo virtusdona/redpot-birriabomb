@@ -510,7 +510,7 @@ const OrderModal = ({ isOpen, onClose, product }) => {
             <iframe
               title="Order form"
               src={`https://tally.so/r/Y5WKL0?transparentBackground=1&hideTitle=1&product=${encodeURIComponent(product.id)}`}
-              className="w-full h-full rounded-lg"
+              className="w-full h-[70vh] rounded-lg"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
