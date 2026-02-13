@@ -212,16 +212,15 @@ const HeroSection = () => {
       data-testid="hero-section"
       className="min-h-screen flex flex-col items-center justify-center px-6"
     >
-    <div className="relative">
+    <div className="relative w-full">
         {/* Top to bottom gradient mask */}
-      <div className="pointer-events-none absolute inset-0 z-10
-        bg-gradient-to-b from-black via-black/60 to-transparent" />
+      <div className="pointer-events-none absolute left-0 right-0 top-0 h-56 z-0 bg-gradient-to-b from-black via-black/60 to-transparent" />
       {/* Video Logo - 1080px wide, no loop */}
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={animationStarted ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative w-full max-w-[1080px] mb-6 flex justify-center"
+        className="relative w-full mb-6 flex justify-center"
       >
         {!videoError ? (
           <video
@@ -232,7 +231,7 @@ const HeroSection = () => {
             muted
             playsInline
             preload="auto"
-            className="relative z-10 w-full h-auto object-contain"
+            className="relative z-10 w-full max-w-[1080px] h-auto object-contain"
             onError={() => setVideoError(true)}
            
           />
