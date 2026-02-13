@@ -215,7 +215,7 @@ const HeroSection = () => {
     <div className="relative">
         {/* Top to bottom gradient mask */}
       <div className="pointer-events-none absolute inset-0 z-10
-        bg-gradient-to-b from-black-to-transparent" />
+        bg-gradient-to-b from-black to-transparent" />
       {/* Video Logo - 1080px wide, no loop */}
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
