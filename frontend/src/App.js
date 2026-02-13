@@ -15,8 +15,8 @@ const BUY_LINK = "https://tally.so/r/Y5WKL0";
 // Asset URLs
 const ASSETS = {
   logoVideo: "https://customer-assets.emergentagent.com/job_birria-heaven/artifacts/qsy5lzn8_logo%20animation.webm",
-  soloSlider: "/solo-slider.png",
-  doubleSlider: "/double-slider.png",
+  soloSlider: process.env.PUBLIC_URL + "/solo-slider.png",
+  doubleSlider: process.env.PUBLIC_URL + "/double-slider.png",
 };
 
 // Products data
@@ -302,6 +302,7 @@ const ProductCard = ({ product, onBuyClick }) => {
             className="flex-shrink-0"
           >
             <button
+              data-tally-open="Y5WKL0" data-tally-layout="modal" data-tally-emoji-text="🍔" data-tally-emoji-animation="wave"
               data-testid={`buy-now-${product.id}`}
               onClick={() => onBuyClick(product)}
               className="bg-brand-red text-brand-text font-body font-normal tracking-wide px-10 py-3 rounded-full hover:brightness-110 transition-all"
