@@ -212,7 +212,10 @@ const HeroSection = () => {
       data-testid="hero-section"
       className="min-h-screen flex flex-col items-center justify-center px-6"
     >
-      
+    <div className="relative">
+        {/* Top to bottom gradient mask */}
+      <div className="pointer-events-none absolute inset-0 z-10
+        bg-gradient-to-b from-black via-black/60 to-transparent" />
       {/* Video Logo - 1080px wide, no loop */}
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
@@ -247,30 +250,28 @@ const HeroSection = () => {
           </div>
         )}
       </motion.div>
-     
+    </div>  
 
-      <div className="relative w-full">
-        {/* gradient overlay above the text */}
-        <div className="pointer-events-none absolute left-0 right-0 top-0 h-40 z-10 bg-gradient-to-b from-black to-transparent" />
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={animationStarted ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-          className="relative z-20 text-center"
+      {/* BIRRIA BOMB Text */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={animationStarted ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+        className="relative z-10 text-center"
+      >
+        <h1
+          data-testid="hero-title"
+          className="font-display text-3xl md:text-4xl lg:text-5xl text-brand-red tracking-wider"
         >
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-brand-red tracking-wider">
-            BIRRIA BOMB
-          </h1>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={animationStarted ? { width: "100%" } : {}}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="h-1 bg-brand-red mt-3 mx-auto"
-          />
-        </motion.div>
-      </div>
-
+          BIRRIA BOMB
+        </h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={animationStarted ? { width: "100%" } : {}}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          className="h-1 bg-brand-red mt-3 mx-auto"
+        />
+      </motion.div>
     </section>
   );
 };
