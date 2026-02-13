@@ -1,0 +1,144 @@
+{
+  "brand_identity": {
+    "name": "Red Pot Kitchen",
+    "product_line": "Birria Bomb",
+    "aesthetic": "Dark Premium Minimal",
+    "core_values": ["Bold", "Premium", "Comfort", "Impact"],
+    "target_audience": "Students and everyday consumers in Philippines"
+  },
+  "typography": {
+    "font_family": {
+      "display": "Anton, sans-serif",
+      "heading": "Oswald, sans-serif",
+      "body": "Manrope, sans-serif"
+    },
+    "usage": {
+      "display": "Used for massive background text (SOLO, DOUBLE) and main 'BIRRIA BOMB' title. Uppercase only.",
+      "heading": "Used for section titles, navigation links, and product names.",
+      "body": "Used for descriptions, prices, and about text."
+    },
+    "weights": {
+      "display": "400 (Anton only has one weight)",
+      "heading": "500, 700",
+      "body": "400, 600"
+    },
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600&family=Oswald:wght@500;700&display=swap"
+  },
+  "colors": {
+    "palette": {
+      "background": "#2C2C2C",
+      "primary": "#E44720",
+      "secondary": "#EAC783",
+      "text_soft": "#FFEBE6",
+      "text_white": "#FFFFFF",
+      "overlay_dark": "rgba(44, 44, 44, 0.8)"
+    },
+    "tailwind_config": {
+      "colors": {
+        "brand-bg": "#2C2C2C",
+        "brand-red": "#E44720",
+        "brand-gold": "#EAC783",
+        "brand-text": "#FFEBE6",
+        "brand-white": "#FFFFFF"
+      }
+    },
+    "usage_rules": {
+      "background": "Main page background. Strictly #2C2C2C.",
+      "primary": "CTAs, 'RED POT' logo text, 'BIRRIA BOMB' underline, accents.",
+      "secondary": "Price tags, subtle borders, highlights.",
+      "text": "Use #FFEBE6 for body text to reduce eye strain. Use #FFFFFF for headings and high-contrast elements."
+    }
+  },
+  "layout": {
+    "structure": "Single page scrolling website.",
+    "sections": [
+      {
+        "name": "Navigation",
+        "type": "Fixed Top",
+        "style": "Glassmorphism or Solid #2C2C2C on scroll. Transparent initially.",
+        "elements": ["Left: 'RED POT' (Brand Red)", "Center: Links (Home, Order, About)", "Right: Cart Icon"]
+      },
+      {
+        "name": "Hero",
+        "type": "Full Screen (h-screen)",
+        "content": "Centered MP4 Logo + 'BIRRIA BOMB' text with underline.",
+        "animation": "Auto-play video, fade-in text."
+      },
+      {
+        "name": "Order",
+        "type": "Product Showcase",
+        "style": "Two distinct blocks (Solo, Double).",
+        "features": ["Huge background text (SOLO, DOUBLE) with low opacity", "Product image floating on top", "Price tag in Gold", "Buy Now button"]
+      },
+      {
+        "name": "About",
+        "type": "Text Section",
+        "style": "Minimal, centered or asymmetric text block describing the brand story."
+      },
+      {
+        "name": "Footer",
+        "type": "Minimal",
+        "content": "Copyright, Social links (optional)."
+      }
+    ],
+    "spacing": {
+      "container_padding": "px-6 md:px-12 lg:px-24",
+      "section_gap": "py-20 md:py-32"
+    }
+  },
+  "components": {
+    "buttons": {
+      "style": "Sharp edges or slightly rounded (rounded-sm). Solid Brand Red background, White text.",
+      "hover": "Brightness-110 or slight lift.",
+      "interaction": "Opens Modal."
+    },
+    "modal": {
+      "usage": "Use Shadcn Dialog component.",
+      "content": "Iframe placeholder for ordering.",
+      "trigger": "'BUY NOW' buttons."
+    },
+    "cards": {
+      "style": "No visible card borders for products. Let them float on the background. Use negative space."
+    },
+    "navigation": {
+      "active_state": "Underline animation (framer-motion layoutId) in Brand Red."
+    }
+  },
+  "assets": {
+    "images": {
+      "logo_video": "https://customer-assets.emergentagent.com/job_65e85e7a-4b3f-463c-875b-799d45d15f52/artifacts/aiivcbzs_logo%20animation.mp4",
+      "product_solo": "https://customer-assets.emergentagent.com/job_65e85e7a-4b3f-463c-875b-799d45d15f52/artifacts/4act7ccw_CEF52839-401F-4035-BC93-614EFBA9D758%20%281%29.png",
+      "product_double": "https://customer-assets.emergentagent.com/job_65e85e7a-4b3f-463c-875b-799d45d15f52/artifacts/ukqabhve_57737FF7-8A98-4767-80A5-C518AC6B3499%20%281%29%20%281%29.png",
+      "reference_layout": "https://customer-assets.emergentagent.com/job_65e85e7a-4b3f-463c-875b-799d45d15f52/artifacts/x5xou8bd_reference.PNG"
+    },
+    "icons": "Use lucide-react (ShoppingBag, Menu, X)."
+  },
+  "motion": {
+    "library": "framer-motion",
+    "animations": {
+      "page_load": "Staggered fade-in for Hero elements.",
+      "scroll_reveal": "Fade up + Scale up for product images.",
+      "parallax": "Background text (SOLO/DOUBLE) moves slower than foreground content.",
+      "hover": "Scale 1.05 for buttons, underline growth for links."
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'framer-motion' and 'lucide-react' if not present.",
+    "2. TAILWIND: Update tailwind.config.js with the specific brand colors (brand-bg, brand-red, etc.).",
+    "3. FONTS: Add the Google Fonts link to the index.html or import in CSS.",
+    "4. STRUCTURE: Create a single page component (e.g., LandingPage.js) that contains all sections.",
+    "5. HERO: Ensure the video loops, mutes, and plays inline (playsinline attribute).",
+    "6. PRODUCTS: Implement the 'Huge Background Text' effect. This can be done by placing a large absolute positioned text behind the relative product image.",
+    "7. MODAL: Create a reusable 'OrderModal' component using Shadcn Dialog. It should accept an 'isOpen' state.",
+    "8. RESPONSIVE: Ensure the huge background text doesn't break mobile layout (scale it down using vw units).",
+    "9. NAVIGATION: Implement smooth scrolling to section IDs (#home, #order, #about).",
+    "10. TESTING: Add data-testid to all interactive elements (nav links, buy buttons, modal close)."
+  ],
+  "universal_guidelines": [
+    "Do not use gradients. Stick to the flat #2C2C2C background.",
+    "Ensure text contrast is high. Use #FFFFFF for critical info.",
+    "Use 'Anton' font for the 'SOLO' and 'DOUBLE' background text to match the 'Bebas Neue' style request.",
+    "Keep the footer extremely minimal (Copyright only).",
+    "The 'Buy Now' buttons should both open the same modal with a placeholder iframe."
+  ]
+}

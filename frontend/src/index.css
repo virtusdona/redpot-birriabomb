@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Doppio+One&family=Hammersmith+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Doppio One', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #141311;
+    color: #FFEBE6;
+}
+
+@layer base {
+    :root {
+        --background: 17 17% 7%;
+        --foreground: 15 100% 95%;
+        --card: 17 17% 7%;
+        --card-foreground: 15 100% 95%;
+        --popover: 17 17% 5%;
+        --popover-foreground: 15 100% 95%;
+        --primary: 12 79% 51%;
+        --primary-foreground: 15 100% 95%;
+        --secondary: 39 68% 72%;
+        --secondary-foreground: 17 17% 7%;
+        --muted: 17 17% 15%;
+        --muted-foreground: 15 60% 80%;
+        --accent: 12 79% 51%;
+        --accent-foreground: 15 100% 95%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 17 17% 20%;
+        --input: 17 17% 20%;
+        --ring: 12 79% 51%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-brand-bg text-brand-text;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #141311;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #E44720;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #EAC783;
+}
+
+/* Smooth scroll anchor offset for fixed nav */
+section[id] {
+    scroll-margin-top: 80px;
+}

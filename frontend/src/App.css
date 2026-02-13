@@ -1,0 +1,48 @@
+/* Red Pot Kitchen - Birria Bomb Landing Page Styles */
+
+/* Ensure video doesn't show controls and stays on last frame */
+video {
+  background: transparent;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a {
+  transition: all 0.3s ease;
+}
+
+/* Ensure images maintain aspect ratio */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Modal overlay enhancement */
+[data-radix-dialog-overlay] {
+  background-color: rgba(20, 19, 17, 0.9) !important;
+}
+
+/* Custom focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #E44720;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on decorative elements */
+.select-none {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Ensure dialog close button visibility */
+[data-radix-dialog-close] {
+  color: #FFEBE6;
+}
+
+[data-radix-dialog-close]:hover {
+  color: #FFFFFF;
+}
