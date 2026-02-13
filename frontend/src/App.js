@@ -223,15 +223,20 @@ const HeroSection = () => {
           <video
             ref={videoRef}
             data-testid="logo-video"
-            src={ASSETS.logoVideo}
             autoPlay
             muted
             playsInline
             preload="auto"
             className="w-full h-auto object-contain"
             onError={() => setVideoError(true)}
-            onLoadedData={(e) => e.target.play()}
-          />
+          >
+            <source
+              src={process.env.PUBLIC_URL + "/logo-alpha.mp4"}
+              type='video/mp4; codecs="hvc1"'
+            />
+            <source src={ASSETS.logoVideo} type="video/webm" />
+          </video>
+          
         ) : (
           /* Fallback when video doesn't load */
           <div className="w-full flex items-center justify-center py-20">
