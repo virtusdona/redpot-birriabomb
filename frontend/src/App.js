@@ -212,10 +212,10 @@ const HeroSection = () => {
       data-testid="hero-section"
       className="min-h-screen flex flex-col items-center justify-center px-6"
     >
-    <div className="relative">
+    <div className="relative w-full">
         {/* Top to bottom gradient mask */}
       <div className="pointer-events-none absolute inset-0 z-10
-        bg-gradient-to-b from-black via-black/90 to-transparent" />
+        bg-gradient-to-b from-black via-black/60 to-transparent" />
       {/* Video Logo - 1080px wide, no loop */}
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
