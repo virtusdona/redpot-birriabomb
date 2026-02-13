@@ -217,26 +217,26 @@ const HeroSection = () => {
         initial={{ opacity: 0, scale: 0.96 }}
         animate={animationStarted ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-[1080px] mb-6"
+        className="relative w-full max-w-[1080px] mb-6 flex justify-center"
       >
+        {/* Gradient Circle Behind Video */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[520px] h-[520px] md:w-[680px] md:h-[680px] rounded-full
+        bg-[radial-gradient(circle,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.6)_35%,rgba(0,0,0,0.2)_60%,rgba(0,0,0,0)_80%)]" />
+        </div>
         {!videoError ? (
           <video
             ref={videoRef}
             data-testid="logo-video"
+            src={ASSETS.logoVideo}
             autoPlay
             muted
             playsInline
             preload="auto"
             className="w-full h-auto object-contain"
             onError={() => setVideoError(true)}
-          >
-            <source
-              src={process.env.PUBLIC_URL + "/logo-alpha.mp4"}
-              type='video/mp4; codecs="hvc1"'
-            />
-            <source src={ASSETS.logoVideo} type="video/webm" />
-          </video>
-          
+           
+          />
         ) : (
           /* Fallback when video doesn't load */
           <div className="w-full flex items-center justify-center py-20">
