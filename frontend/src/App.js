@@ -223,11 +223,6 @@ const HeroSection = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative w-full max-w-[1080px] mb-6 flex justify-center"
       >
-        {/* Gradient Circle Behind Video */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[520px] h-[520px] md:w-[680px] md:h-[680px] rounded-full
-        bg-[radial-gradient(circle,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.6)_35%,rgba(0,0,0,0.2)_60%,rgba(0,0,0,0)_80%)]" />
-        </div>
         {!videoError ? (
           <video
             ref={videoRef}
