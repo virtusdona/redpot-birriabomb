@@ -498,7 +498,7 @@ const OrderModal = ({ isOpen, onClose, product }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         data-testid="order-modal"
-        className="bg-brand-bg border-brand-text/20 max-w-2xl w-[95vw] h-[90vh] md:h-auto"
+        className="bg-brand-bg border-brand-text/20 max-w-2xl w-[95vw] h-full md:h-auto"
       >
         <DialogHeader>
           <DialogTitle className="font-body text-brand-white text-xl">
@@ -510,7 +510,7 @@ const OrderModal = ({ isOpen, onClose, product }) => {
             <iframe
               title="Order form"
               src={`https://tally.so/r/Y5WKL0?transparentBackground=1&hideTitle=1&product=${encodeURIComponent(product.id)}`}
-              className="w-full h-[70vh] rounded-lg"
+              className="w-full h-full rounded-lg"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
