@@ -302,7 +302,6 @@ const ProductCard = ({ product, onBuyClick }) => {
             className="flex-shrink-0"
           >
             <button
-              data-tally-open="Y5WKL0" data-tally-layout="modal" data-tally-emoji-text="🍔" data-tally-emoji-animation="wave"
               data-testid={`buy-now-${product.id}`}
               onClick={() => onBuyClick(product)}
               className="bg-brand-red text-brand-text font-body font-normal tracking-wide px-10 py-3 rounded-full hover:brightness-110 transition-all"
@@ -499,7 +498,7 @@ const OrderModal = ({ isOpen, onClose, product }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         data-testid="order-modal"
-        className="bg-brand-bg border-brand-text/20 max-w-2xl w-[90vw]"
+        className="bg-brand-bg border-brand-text/20 max-w-2xl w-[95vw] h-[90vh] md:h-auto"
       >
         <DialogHeader>
           <DialogTitle className="font-body text-brand-white text-xl">
@@ -507,82 +506,88 @@ const OrderModal = ({ isOpen, onClose, product }) => {
           </DialogTitle>
         </DialogHeader>
         <div className="mt-4">
-          <div
-            data-testid="order-form-placeholder"
-            className="w-full h-96 bg-brand-bg/50 border border-brand-text/10 rounded flex items-center justify-center"
-          >
-            <div className="text-center">
-              <p className="font-body text-brand-text/60 mb-2">Order Form</p>
-              <p className="font-body text-xs text-brand-text/40">
-                Tally form will be embedded here
-              </p>
-              <p className="font-body text-xs text-brand-text/40 mt-2">
-                Link: {BUY_LINK}
-              </p>
-            </div>
-          </div>
+           {product && (
+            <iframe
+              title="Order form"
+              src={`https://tally.so/r/Y5WKL0?transparentBackground=1&hideTitle=1&product=${encodeURIComponent(product.id)}`}
+              className="w-full h-full rounded-lg"
+              frameBorder="0"
+              marginHeight="0"
+              marginWidth="0"
+            />
+          )}
         </div>
       </DialogContent>
     </Dialog>
   );
 };
 
+
 // Main App Component
 function App() {
   const [activeSection, setActiveSection] = useState("home");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+const [modalOpen, setModalOpen] = useState(false);
+const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Track active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "order", "about"];
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+useEffect(() => {
+const existing = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
+if (existing) return;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop } = element;
-          if (scrollPosition >= offsetTop) {
-            setActiveSection(section);
-            break;
-          }
-        }
+const s = document.createElement("script");
+s.src = "https://tally.so/widgets/embed.js";
+s.async = true;
+document.body.appendChild(s);
+
+
+}, []);
+
+useEffect(() => {
+const handleScroll = () => {
+const sections = ["home", "order", "about"];
+const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = sections[i];
+    const element = document.getElementById(section);
+    if (element) {
+      const { offsetTop } = element;
+      if (scrollPosition >= offsetTop) {
+        setActiveSection(section);
+        break;
       }
-    };
+    }
+  }
+};
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+window.addEventListener("scroll", handleScroll);
+handleScroll();
+return () => window.removeEventListener("scroll", handleScroll);
 
-  const handleBuyClick = (product) => {
-    setSelectedProduct(product);
-    setModalOpen(true);
-  };
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
-    setSelectedProduct(null);
-  };
+}, []);
 
-  return (
-    <div className="min-h-screen bg-brand-bg" data-testid="app-container">
-      <Navigation activeSection={activeSection} />
-      <main>
-        <HeroSection />
-        <OrderSection onBuyClick={handleBuyClick} />
-        <AboutSection />
-      </main>
-      <Footer />
-      <OrderModal
-        isOpen={modalOpen}
-        onClose={handleCloseModal}
-        product={selectedProduct}
-      />
-    </div>
-  );
+const handleBuyClick = (product) => {
+setSelectedProduct(product);
+setModalOpen(true);
+};
+
+const handleCloseModal = () => {
+setModalOpen(false);
+setSelectedProduct(null);
+};
+
+return (
+<div className="min-h-screen bg-brand-bg" data-testid="app-container">
+<Navigation activeSection={activeSection} />
+<main>
+<HeroSection />
+<OrderSection onBuyClick={handleBuyClick} />
+<AboutSection />
+</main>
+<Footer />
+<OrderModal isOpen={modalOpen} onClose={handleCloseModal} product={selectedProduct} />
+</div>
+);
 }
 
 export default App;
