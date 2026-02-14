@@ -210,7 +210,7 @@ const HeroSection = () => {
     <section
       id="home"
       data-testid="hero-section"
-      className="min-h-screen flex flex-col items-center justify-center"
+      className="min-h-screen flex flex-col justify-center"
     >
     <div className="relative w-full">
         {/* Top to bottom gradient mask */}
@@ -220,7 +220,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, scale: 0.96 }}
         animate={animationStarted ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative w-full mb-6 flex justify-center"
+        className="relative w-full mb-6"
       >
         {!videoError ? (
           <video
@@ -231,7 +231,7 @@ const HeroSection = () => {
             muted
             playsInline
             preload="auto"
-            className="relative z-10 w-full max-w-[1080px] h-auto object-contain"
+            className="relative z-10 w-full h-auto object-contain"
             onError={() => setVideoError(true)}
            
           />
