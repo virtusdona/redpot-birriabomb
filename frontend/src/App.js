@@ -210,7 +210,7 @@ const HeroSection = () => {
     <section
       id="home"
       data-testid="hero-section"
-      className="min-h-screen flex flex-col items-center justify-center px-6"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
     <div className="relative w-full">
         {/* Top to bottom gradient mask */}
