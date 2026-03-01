@@ -24,7 +24,7 @@ const PRODUCTS = [
   {
     id: "solo",
     name: "SOLO BOMB",
-    price: "₱65",
+    price: "₱35",
     description: "A birria brisket slider made with tender shredded beef, Filipino chiles, and melted cheese, finished with a light glaze and served with warm consome for dipping.",
     bgWord: "SOLO",
     image: ASSETS.soloSlider,
@@ -32,7 +32,7 @@ const PRODUCTS = [
   {
     id: "double",
     name: "DOUBLE BOMB",
-    price: "₱100",
+    price: "₱60",
     description: "Two birria brisket sliders with melted cheese and a savory glaze, paired with a side of rich consome for a fuller, shareable serving.",
     bgWord: "DOUBLE",
     image: ASSETS.doubleSlider,
